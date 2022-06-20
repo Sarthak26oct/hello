@@ -1,0 +1,27 @@
+.card-csv {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+.item {
+  display: flex;
+  text-align: center;
+  color: white;
+  justify-content: space-between;
+}
+
+.item .icon {
+  font-size: 4em;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.item .name {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 15px;
+  width: 7rem;
+}

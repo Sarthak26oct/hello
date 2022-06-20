@@ -1,0 +1,46 @@
+<div class="dashboard">
+  <div class="card">
+    <div class="card-header">Dashboard</div>
+    <div class="card-body">
+      <h5 class="card-title">All Insights</h5>
+      <div class="row">
+        <div class="col-sm-3 card card-order" *ngIf="totalOrders">
+          <div class="item">
+            <div>
+              <i class="fa-solid fa-cart-arrow-down icon"></i> <br />
+              <span class="name">Orders</span>
+            </div>
+            <span class="num">{{totalOrders}}</span>
+          </div>
+        </div>
+        <div class="col-sm-3 card card-product">
+          <div class="item">
+            <div>
+              <i class="fa-solid fa-briefcase icon"></i><br />
+              <span class="name">Products</span>
+            </div>
+            <span class="num">{{totalProducts}}</span>
+          </div>
+        </div>
+        <div class="col-sm-3 card card-user">
+          <div class="item">
+            <div>
+              <i class="fa-solid fa-user icon"></i> <br />
+              <span class="name">Users</span>
+            </div>
+            <span class="num">{{totalUsers}}</span>
+          </div>
+        </div>
+        <div class="col-sm-3 card card-sale">
+          <div class="item">
+            <div>
+              <i class="fa-solid fa-indian-rupee-sign icon"></i><br />
+              <span class="name">Total Sales</span>
+            </div>
+            <span class="num">{{totalSales |currency:"INR":"symbol"}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

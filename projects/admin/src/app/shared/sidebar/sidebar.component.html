@@ -1,0 +1,36 @@
+<div class="sidebar">
+  <div class="logo">ESHOP</div>
+  <div class="links">
+    <ul>
+      <li>
+        <a routerLink="/"><i class="fa-solid fa-house-user"></i>Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/products"
+          ><i class="fa-solid fa-briefcase"></i>Products</a
+        >
+      </li>
+      <li>
+        <a routerLink="/categories"
+          ><i class="fa-solid fa-list"></i>Categories</a
+        >
+      </li>
+      <li>
+        <a routerLink="/orders"
+          ><i class="fa-solid fa-cart-shopping"></i>Orders</a
+        >
+      </li>
+      <li>
+        <a routerLink="/users"><i class="fa-solid fa-user"></i>Users</a>
+      </li>
+      <li>
+        <a routerLink="/csv"><i class="fa-solid fa-upload"></i>CSV Upload</a>
+      </li>
+      <li>
+        <a (click)="logout()" style="cursor: pointer"
+          ><i class="fa-solid fa-right-from-bracket logout"></i>Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
