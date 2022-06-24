@@ -75,7 +75,7 @@
         <p>{{ orderItem.product.category.name }}</p>
       </div>
       <div class="col-sm-2">
-        <p>{{ orderItem.product.price }}</p>
+        <p>{{ orderItem.product.price | currency: "INR":"symbol" }}</p>
       </div>
       <div class="col-sm-2">
         <p>{{ orderItem.quantity }}</p>

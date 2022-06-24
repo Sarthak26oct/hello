@@ -30,7 +30,7 @@ export class ProductFormComponent implements OnInit {
       description: ['', Validators.required],
       richDescription: [''],
       image: [''],
-      isFeatured: [''],
+      // isFeatured: [''],
     });
 
     this.categoriesService.getCategories().subscribe(categories => {

@@ -3,8 +3,8 @@
     <div class="card-header">Dashboard</div>
     <div class="card-body">
       <h5 class="card-title">All Insights</h5>
-      <div class="row">
-        <div class="col-sm-3 card card-order" *ngIf="totalOrders">
+      <div class="row row1">
+        <div class="col-sm-8 col-md-5 col-lg-2 card card-order" *ngIf="totalOrders">
           <div class="item">
             <div>
               <i class="fa-solid fa-cart-arrow-down icon"></i> <br />
@@ -13,7 +13,7 @@
             <span class="num">{{totalOrders}}</span>
           </div>
         </div>
-        <div class="col-sm-3 card card-product">
+        <div class="col-sm-8 col-md-5 col-lg-3 card card-product">
           <div class="item">
             <div>
               <i class="fa-solid fa-briefcase icon"></i><br />
@@ -22,7 +22,7 @@
             <span class="num">{{totalProducts}}</span>
           </div>
         </div>
-        <div class="col-sm-3 card card-user">
+        <div class="col-sm-8 col-md-5 col-lg-2 card card-user">
           <div class="item">
             <div>
               <i class="fa-solid fa-user icon"></i> <br />
@@ -31,13 +31,13 @@
             <span class="num">{{totalUsers}}</span>
           </div>
         </div>
-        <div class="col-sm-3 card card-sale">
+        <div class="col-sm-8 col-md-5 col-lg-3 card card-sale">
           <div class="item">
             <div>
               <i class="fa-solid fa-indian-rupee-sign icon"></i><br />
               <span class="name">Total Sales</span>
             </div>
-            <span class="num">{{totalSales |currency:"INR":"symbol"}}</span>
+            <span class="sale">{{totalSales |currency:"INR":"symbol"}}</span>
           </div>
         </div>
       </div>

@@ -1,0 +1,35 @@
+.search {
+  display: flex;
+  background-color: grey;
+  border-radius: 10px;
+  width: 80%;
+  height: 2.5rem;
+  margin: auto;
+}
+
+.search i {
+  width: 3rem;
+  font-size: 1.5rem;
+  margin-top: 7px;
+  margin-left: 10px;
+  color: white;
+}
+
+.search .search-input {
+  height: 2.5rem;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+@media screen and (max-width: 720px) {
+  .search {
+    margin: 0.5rem auto;
+  }
+}
+
+@media screen and (max-width: 968px) {
+    .search {
+      margin: 0.5rem auto;
+      width: 60%;
+    }
+  }

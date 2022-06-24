@@ -1,0 +1,20 @@
+.register {
+  background: linear-gradient(235deg, #565867, #191a25);
+  height: 100vh;
+}
+
+.register .panel {
+  width: 650px;
+  height: 525px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.link {
+  margin-top: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}

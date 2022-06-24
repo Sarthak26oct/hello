@@ -1,0 +1,12 @@
+.carousel-inner .carousel-item > img {
+  width: 100%;
+  height: 95vh;
+}
+
+@media  screen and (max-width: 968px) {
+  
+}
+
+
+
+

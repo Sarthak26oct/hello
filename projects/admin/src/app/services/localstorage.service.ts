@@ -10,6 +10,14 @@ export class LocalstorageService {
     localStorage.setItem('token', token);
   }
 
+  setUSerId(userId: string) {
+    localStorage.setItem('userId', userId);
+  }
+
+  setUserName(name: string) {
+    localStorage.setItem('userName', name);
+  }
+
   getToken() {
     return localStorage.getItem('token');
   }

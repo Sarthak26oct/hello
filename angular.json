@@ -26,7 +26,9 @@
               "projects/admin/src/favicon.ico",
               "projects/admin/src/assets"
             ],
-            "styles": ["projects/admin/src/styles.css"],
+            "styles": [
+              "projects/admin/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {

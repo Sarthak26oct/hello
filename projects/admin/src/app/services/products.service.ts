@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 
@@ -8,14 +8,22 @@ import { Product } from '../models/product';
 export class ProductsService {
   constructor(private http: HttpClient) {}
 
-  getProducts() {
-    return this.http.get<Product[]>('http://localhost:3000/api/v1/products/');
+  getProducts(categoryId?: string) {
+    let params = new HttpParams();
+    if(categoryId) {
+      params = params.append('categories', categoryId);
+    }
+    return this.http.get<Product[]>('http://localhost:3000/api/v1/products/', {params: params});
   }
 
   getProduct(id: string) {
     return this.http.get<Product>(
       `http://localhost:3000/api/v1/products/${id}`
     );
+  }
+
+  sendMail() {
+    return this.http.post(`http://localhost:3000/api/v1/products/email`, 'email');
   }
 
   addProduct(product: Product) {

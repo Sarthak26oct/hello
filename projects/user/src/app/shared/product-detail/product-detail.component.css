@@ -1,0 +1,102 @@
+.image {
+  width: 100%;
+  height: 480px;
+}
+
+.detail {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.desc {
+    /* font-size: 2rem; */
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 25px 0;
+}
+
+.price .before {
+    font-size: 1rem;
+    margin-left: 10px;
+    font-weight: 300;
+    text-decoration: line-through;
+    color: grey;
+}
+
+.quantity {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.quantity label {
+    font-size: 1.2rem;
+}
+
+.richDescription {
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+.stock1 {
+  color: red;
+}
+
+.stock {
+  font-size: larger;
+  font-weight: 500;
+}
+
+body {
+  background-color: #eef3f4;
+}
+
+.card {
+  width: 380px;
+  border: none;
+  /* height: 280px; */
+}
+
+.ratings {
+  margin-right: 10px;
+}
+
+.ratings i {
+  color: #cecece;
+  font-size: 20px;
+}
+
+.rating-color {
+  color: #fbc634 !important;
+}
+
+.review-count {
+  font-weight: 400;
+  margin-bottom: 2px;
+  font-size: 24px !important;
+}
+
+.small-ratings i {
+  color: #cecece;
+}
+
+.review-stat {
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.action {
+    margin-top: 20px;
+}
+
+.action button {
+    margin-right: 10px;
+}

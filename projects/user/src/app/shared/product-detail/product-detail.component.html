@@ -1,0 +1,55 @@
+<div class="detail container">
+  <div class="row" *ngIf="product">
+    <div class="col-md-6">
+      <img class="image" [src]="product.image" alt="" />
+    </div>
+    <div class="col-md-6">
+      <h1>{{ product.name }}</h1>
+      <div class="card p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="ratings">
+            <i class="fa fa-star rating-color"></i>
+            <i class="fa fa-star rating-color"></i>
+            <i class="fa fa-star rating-color"></i>
+            <i class="fa fa-star rating-color"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <h5 class="review-count">12 Reviews</h5>
+        </div>
+      </div>
+      <div class="price">
+        {{ product.price | currency: "INR":"symbol" }}
+        <span class="before">
+          {{ product.price + 2499 | currency: "INR":"symbol" }}
+        </span>
+      </div>
+      <div class="stock" *ngIf="product.countInStock > 0">Stock Left: {{ product.countInStock }}</div><br>
+      <div class="stock stock1" *ngIf="product.countInStock <= 0">Out Of Stock</div><br>
+      <div class="quantity">
+        <label for="quatity">Quantity:</label><br />
+        <input
+          type="number"
+          [(ngModel)]="quantity"
+          id="quantity"
+          min="0"
+          max="100"
+          placeholder="Enter the quantity"
+        />
+      </div>
+      <div class="action">
+        <button type="button" class="btn btn-primary" (click)="buyNow()">Buy Now</button>
+        <button type="button" class="btn btn-primary" (click)="addToCart()">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <p class="desc" *ngIf="product">{{ product.description }}</p>
+  <div class="richDescription">
+    <div class="row" *ngIf="product">
+      <div class="col-md-12">
+        {{ product.richDescription }}
+      </div>
+    </div>
+  </div>
+</div>

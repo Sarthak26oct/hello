@@ -11,8 +11,8 @@ export interface Product {
   brand?: string;
   category?: Category;
   countInStock?: number;
-  rating?: number;
-  numReviews?: number;
-  isFeatured?: boolean;
+  // rating?: number;
+  // numReviews?: number;
+  // isFeatured?: boolean;
   dateCreated?: string;
 }
