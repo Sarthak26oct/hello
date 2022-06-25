@@ -53,7 +53,7 @@ export class ProductDetailComponent implements OnInit {
         category: product.category,
         countInStock: product.countInStock - cartItem.quantity,
       };
-      this.productService.updateProduct(updatedProduct).subscribe();
+      this.productService.updateProduct(updatedProduct, updatedProduct.id).subscribe();
     });
   }
 

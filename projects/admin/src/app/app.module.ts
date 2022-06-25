@@ -19,6 +19,7 @@ import { OrderDetailsComponent } from './order/order-details/order-details.compo
 import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { CsvComponent } from './csv/csv.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CsvComponent } from './csv/csv.component';
     OrderDetailsComponent,
     LoginComponent,
     CsvComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

@@ -36,6 +36,7 @@ export class UserFormComponent implements OnInit {
       zip: [''],
       city: [''],
       country: [''],
+      coupan: [''],
     });
 
     this.checkEditMode();

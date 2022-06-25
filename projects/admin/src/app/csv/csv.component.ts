@@ -34,10 +34,9 @@ export class CsvComponent implements OnInit {
   save() {
     const formData = new FormData();
     formData.append('file', this.form.get('fileSource').value);
-   
-    this.productService.uploadCsv(formData)
-      .subscribe(res => {
-        alert('Uploaded Successfully.');
-      })
+
+    this.productService.uploadCsv(formData).subscribe((res) => {
+      alert('Uploaded Successfully.');
+    });
   }
 }

@@ -1,27 +1,20 @@
-.card1 img {
-  margin: 10px;
-  width: 280px;
-  height: 200px;
-}
-
 .btn1 {
-  margin: 10px;
+  margin: 1rem 0;
+  width: 100%;
 }
 
-h4 {
+h5 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.card1 {
+.item {
   cursor: pointer;
   margin-top: 20px;
-  width: 300px;
-  margin-right: 30px;
   margin-bottom: 25px;
 }
 
-.details {
-  margin: 10px;
+img {
+  height: 200px;
 }

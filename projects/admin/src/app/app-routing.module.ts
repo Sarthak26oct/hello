@@ -11,6 +11,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ProductComponent } from './product/product.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ShellComponent } from './shared/shell/shell.component';
+import { SignupComponent } from './signup/signup.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserComponent } from './user/user.component';
 
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
   {
     path: '**',

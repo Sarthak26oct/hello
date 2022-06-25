@@ -15,44 +15,46 @@
         <div class="empty" *ngIf="cartItems.length <= 0">
           Cart Is Empty, Please add some items!
         </div>
-        <div class="row item" *ngFor="let item of cartItems">
-          <div class="col-md-2">
-            <img
-              class="cart-image"
-              [src]="item.product.image"
-              [attr.alt]="item.product.name"
-            />
-          </div>
-          <div class="col-md-7">
-            <div class="name">{{ item.product.name }}</div>
-            <div class="price">{{ item.product.price | currency: "INR" }}</div>
-            <div class="remove">
-              <button class="btn btn-danger">
-                <i class="fa-solid fa-trash" (click)="delete(item)"></i>
-              </button>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="quantity">
-              <label for="quatity">Quantity:</label><br />
-              <input
-                type="number"
-                [(ngModel)]="item.quantity"
-                id="quantity"
-                min="0"
-                max="100"
-                placeholder="Enter the quantity"
-                (change)="updateQuantity($event, item)"
+          <div class="row item" *ngFor="let item of cartItems">
+            <div class="col-md-2">
+              <img
+                class="cart-image"
+                [src]="item.product.image"
+                [attr.alt]="item.product.name"
               />
             </div>
-            <div class="subtotal">
-              Subtotal:
-              <span class="value">{{
-                item.product.price * item.quantity | currency: "INR"
-              }}</span>
+            <div class="col-md-7">
+              <div class="name">{{ item.product.name }}</div>
+              <div class="price">
+                {{ item.product.price | currency: "INR" }}
+              </div>
+              <div class="remove">
+                <button class="btn btn-danger">
+                  <i class="fa-solid fa-trash" (click)="delete(item)"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="quantity">
+                <label for="quatity">Quantity:</label><br />
+                <input
+                  type="number"
+                  [(ngModel)]="item.quantity"
+                  id="quantity"
+                  min="0"
+                  max="100"
+                  placeholder="Enter the quantity"
+                  (change)="updateQuantity($event, item)"
+                />
+              </div>
+              <div class="subtotal">
+                Subtotal:
+                <span class="value">{{
+                  item.product.price * item.quantity | currency: "INR"
+                }}</span>
+              </div>
             </div>
           </div>
-        </div>
       </div>
       <div class="col-lg-4 col-md-12">
         <div class="summary">

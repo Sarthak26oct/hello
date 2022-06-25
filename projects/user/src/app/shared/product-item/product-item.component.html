@@ -1,30 +1,35 @@
 <ng-container *ngIf="product">
-  <div class="card card1">
-    <img
-      alt="{{ product.name }}"
-      src="{{ product.image }}"
-      [routerLink]="'/products/' + product.id"
-    />
-    <div class="details">
-      <h4>
-        {{ product.name }}
-      </h4>
-      <p *ngIf="product.countInStock > 0">
-        <strong>Stock Left:</strong> {{ product.countInStock }}
-      </p>
-      <p *ngIf="product.countInStock <= 0" style="color: red">Out Of Stock</p>
+  <div class="item">
+    <div class="card" style="width: 18rem">
+      <img
+        class="card-img-top"
+        src="{{ product.image }}"
+        alt="{{ product.name }}"
+        [routerLink]="'/products/' + product.id"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text"></p>
+        <p *ngIf="product.countInStock > 0">
+          <strong>Stock Left:</strong> {{ product.countInStock }}
+        </p>
+        <p *ngIf="product.countInStock <= 0" style="color: red">Out Of Stock</p>
 
-      <p>
-        <strong>Price:</strong>{{ product.price | currency: "INR":"symbol" }}
-      </p>
+        <p>
+          <strong>Price:</strong>{{ product.price | currency: "INR":"symbol" }}
+        </p>
+
+        <button class="btn btn-success btn1" (click)="addToWishlist()">
+          Add to Wishlist
+        </button>
+        <button
+          class="btn btn-primary btn1"
+          (click)="addToCart()"
+          [disabled]="product.countInStock <= 0"
+        >
+          Add to cart
+        </button>
+      </div>
     </div>
-    <button class="btn btn-success btn1" (click)="addToWishlist()">Add to Wishlist</button>
-    <button
-      class="btn btn-primary btn1"
-      (click)="addToCart()"
-      [disabled]="product.countInStock <= 0"
-    >
-      Add to cart
-    </button>
   </div>
 </ng-container>

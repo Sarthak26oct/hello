@@ -17,4 +17,10 @@ export class HomeComponent implements OnInit {
       this.products = products;
     });
   }
+
+  sort() {
+    this.products.sort((a, b) => {
+      return a.price - b.price;
+    });
+  }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { CategoriesService } from '../../services/categories.service';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-product-form',
@@ -13,11 +15,14 @@ export class ProductFormComponent implements OnInit {
   isSubmitted = false;
   form: FormGroup;
   categories = [];
+  currentProductId: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private productService: ProductsService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -29,28 +34,97 @@ export class ProductFormComponent implements OnInit {
       countInStock: ['', Validators.required],
       description: ['', Validators.required],
       richDescription: [''],
-      image: [''],
-      // isFeatured: [''],
+      image: ['', Validators.required],
+      fileSource: ['', Validators.required],
     });
 
-    this.categoriesService.getCategories().subscribe(categories => {
+    this.categoriesService.getCategories().subscribe((categories) => {
       this.categories = categories;
-    })
+    });
+
+    this.checkEditMode();
   }
 
   onSubmit() {
     this.isSubmitted = true;
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
     const productFormData = new FormData();
-    
 
-    // Object.keys(this.form).map((key) => {
-    //   console.log(key);
-    //   console.log(this.form[key].value);
-    // })
+    productFormData.append('name', this.form.get('name').value);
+    productFormData.append('brand', this.form.get('brand').value);
+    productFormData.append('price', this.form.get('price').value);
+    productFormData.append('category', this.form.get('category').value);
+    productFormData.append('countInStock', this.form.get('countInStock').value);
+    productFormData.append('description', this.form.get('description').value);
+    productFormData.append(
+      'richDescription',
+      this.form.get('richDescription').value
+    );
+    productFormData.append('image', this.form.get('fileSource').value);
+
+    if (this.editMode) {
+      this.updateProduct(productFormData);
+    } else {
+      this.addProduct(productFormData);
+    }
+  }
+
+  private updateProduct(productFormData: FormData) {
+    this.productService
+      .updateProduct(productFormData, this.currentProductId)
+      .subscribe(() => {
+        this.isSubmitted = false;
+        this.form.reset();
+        timer(500)
+          .toPromise()
+          .then(() => {
+            this.router.navigate(['/products']);
+          });
+      });
+  }
+
+  private addProduct(product: FormData) {
+    this.productService.addProduct(product).subscribe(() => {
+      this.isSubmitted = false;
+      this.form.reset();
+      timer(500)
+        .toPromise()
+        .then(() => {
+          this.router.navigate(['/products']);
+        });
+    });
+  }
+
+  private checkEditMode() {
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.editMode = true;
+        this.currentProductId = params['id'];
+        this.productService.getProduct(params['id']).subscribe((product) => {
+          this.form.controls['name'].setValue(product.name);
+          this.form.controls['brand'].setValue(product.brand);
+          this.form.controls['category'].setValue(product.category.id);
+          this.form.controls['price'].setValue(product.price);
+          this.form.controls['description'].setValue(product.description);
+          this.form.controls['richDescription'].setValue(
+            product.richDescription
+          );
+          this.form.controls['countInStock'].setValue(product.countInStock);
+        });
+      }
+    });
+  }
+
+  onUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+      this.form.patchValue({
+        fileSource: file,
+      });
+    }
   }
 
   cancel() {

@@ -3,7 +3,11 @@
   <div class="card-body">
     <h5 class="card-title">{{ editMode ? "Edit Product" : "Add Product" }}</h5>
     <p class="card-text">You can add or create product here</p>
-    <button class="btn btn-primary" (click)="onSubmit()" [disabled]="form.invalid">
+    <button
+      class="btn btn-primary"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
       <i class="fa-solid fa-plus"></i>{{ editMode ? "Update" : "Create" }}
     </button>
     <a class="btn btn-secondary" routerLink="form" (click)="cancel()">Cancel</a>
@@ -82,8 +86,9 @@
           >
             <option selected>Select the category</option>
             <option
-              [value]="category.name"
+              [value]="category.id"
               *ngFor="let category of categories"
+              [ngValue]="category.id"
             >
               {{ category.name }}
             </option>
@@ -94,17 +99,6 @@
             >Please select a category</small
           >
         </div>
-        <!-- <div class="form-group col-md-4">
-          <label for="feature">Is Featured</label><br />
-          <input
-            type="checkbox"
-            data-toggle="switchbutton"
-            formControlName="isFeatured"
-            checked
-            data-onstyle="primary"
-            data-offstyle="secondary"
-          />
-        </div> -->
         <div class="form-group col-md-12">
           <label for="description">Description</label>
           <textarea
@@ -137,6 +131,7 @@
             type="file"
             accept="image/*"
             formControlName="image"
+            (change)="onUpload($event)"
           />
         </div>
       </div>

@@ -10,10 +10,12 @@ export class ProductsService {
 
   getProducts(categoryId?: string) {
     let params = new HttpParams();
-    if(categoryId) {
+    if (categoryId) {
       params = params.append('categories', categoryId);
     }
-    return this.http.get<Product[]>('http://localhost:3000/api/v1/products/', {params: params});
+    return this.http.get<Product[]>('http://localhost:3000/api/v1/products/', {
+      params: params,
+    });
   }
 
   getProduct(id: string) {
@@ -23,16 +25,22 @@ export class ProductsService {
   }
 
   sendMail() {
-    return this.http.post(`http://localhost:3000/api/v1/products/email`, 'email');
+    return this.http.post(
+      `http://localhost:3000/api/v1/products/email`,
+      'email'
+    );
   }
 
-  addProduct(product: Product) {
-    return this.http.post('http://localhost:3000/api/v1/products/', product);
+  addProduct(product: FormData) {
+    return this.http.post<Product>(
+      'http://localhost:3000/api/v1/products/',
+      product
+    );
   }
 
-  updateProduct(product: Product) {
+  updateProduct(product: any, productId: string) {
     return this.http.put(
-      `http://localhost:3000/api/v1/products/${product.id}`,
+      `http://localhost:3000/api/v1/products/${productId}`,
       product
     );
   }
