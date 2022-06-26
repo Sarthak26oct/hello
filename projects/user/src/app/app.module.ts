@@ -24,7 +24,6 @@ import { ProductDetailComponent } from './shared/product-detail/product-detail.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingCartBadgeComponent } from './shared/shopping-cart-badge/shopping-cart-badge.component';
-import { BadgeModule } from 'primeng/badge';
 import { CheckoutComponent } from './shared/checkout/checkout.component';
 import { ThankYouComponent } from './shared/thank-you/thank-you.component';
 import { LoginComponent } from './login/login.component';
@@ -66,7 +65,6 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BadgeModule,
     ReactiveFormsModule
   ],
   providers: [],
