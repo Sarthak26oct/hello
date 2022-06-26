@@ -9,10 +9,10 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  totalOrders;
-  totalProducts;
-  totalUsers;
-  totalSales;
+  totalOrders = 0;
+  totalProducts = 0;
+  totalUsers = 0;
+  totalSales = 0;
 
   constructor(
     private orderService: OrderService,

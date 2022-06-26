@@ -5,18 +5,19 @@ import { ProductsService } from 'projects/admin/src/app/services/products.servic
 @Component({
   selector: 'app-bed',
   templateUrl: './bed.component.html',
-  styleUrls: ['./bed.component.css']
+  styleUrls: ['./bed.component.css'],
 })
 export class BedComponent implements OnInit {
-  bedCategoryId = "62aefcc44ecf3d04f4e34dc9";
+  bedCategoryId = '62aefcc44ecf3d04f4e34dc9';
   bedCategoryProducts: Product[] = [];
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productService.getProducts(this.bedCategoryId).subscribe((products) => {
-      this.bedCategoryProducts = products;
-    })
+    this.productService
+      .getProducts(this.bedCategoryId)
+      .subscribe((products) => {
+        this.bedCategoryProducts = products;
+      });
   }
-
 }
